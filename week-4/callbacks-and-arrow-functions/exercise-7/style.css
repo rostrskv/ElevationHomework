@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#box {
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
