@@ -1,34 +1,15 @@
 "use strict"
-const posts = [
-    {
-        name: "Uncle Jerome",
-        post: "Happy birthday kido!",
-    },
-    {
-        name: "BFF Charlene",
-        post: "HEARTS LOVE YOU FOREVER BFF4LYFE HBD"
-    },
-    {
-        name: "Old High School Teacher",
-        post: "Hey ace, have a good one."
-    }
-]
-const render = function () {
-    $("#posts").empty()
-    for (const post of posts) {
-        const postHtml = `<div class="post">
-        <span class="name">${post.name}</span>:
-        <span class="post">${post.post}</span>
-        </div>`
-        $("#posts").append(postHtml)
-    }
-}
-render()
+
+const model = Model()
+const renderer = Renderer()
+const posts = model.getPosts()
+Renderer().render(posts)
+
 $("#post-button").on("click", function () {
-    const post = {
-        name: $("#name-input").val(),
-        post: $("#post-input").val()
+    const [name, post] = [$("#name-input").val(), $("#post-input").val()]
+    if (name.length > 0 && post.length > 0) {
+        model.addPost(name, post)
+        const posts = model.getPosts()
+        Renderer().render(posts)
     }
-    posts.push(post)
-    render()
 })
