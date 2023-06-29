@@ -6,12 +6,19 @@ const rightButton = document.getElementById("right")
 const downButton = document.getElementById("down")
 const ball = document.getElementById("ball")
 const moveStep = 15
+const fieldWidth = playingField.clientWidth - ball.offsetWidth
+const fieldHeight = playingField.clientWidth - ball.offsetWidth
 
-const move = function (leftIncrement = 0, topIncrement = 0) {
+const move = function (leftIncrement, topIncrement ) {
     const leftPosition = (parseInt(ball.style.left) || 0) + leftIncrement
-    ball.style.left = `${leftPosition}px`
+    console.log(leftPosition)
+    if (leftPosition >= 0 && leftPosition < fieldWidth) {
+        ball.style.left = `${leftPosition}px`
+    }
     const topPosition = (parseInt(ball.style.top) || 0) + topIncrement
-    ball.style.top = `${topPosition}px`
+    if (topPosition >= 0 && topPosition < fieldHeight) {
+        ball.style.top = `${topPosition}px`
+    }
 }
 
 const moveLeft = function () {
@@ -27,11 +34,29 @@ const moveDown = function () {
     return move(0, moveStep)
 }
 
+const keyHandler = function (event) {
+    switch (event.key) {
+        case "ArrowLeft":
+            moveLeft()
+            break
+        case "ArrowRight":
+            moveRight()
+            break
+        case "ArrowUp":
+            moveUp()
+            break
+        case "ArrowDown":
+            moveDown()
+            break
+    }
+}
+
 const addHandlers = function () {
     upButton.onclick = moveUp
     leftButton.onclick = moveLeft
     rightButton.onclick = moveRight
     downButton.onclick = moveDown
+    document.onkeydown = keyHandler
 }
 
 const addHeaders = function () {
@@ -49,3 +74,4 @@ const addHeaders = function () {
 
 addHeaders()
 addHandlers()
+move(0, 0)
