@@ -1,35 +1,37 @@
 "use strict"
 const playingField = document.getElementById("playing-field")
-const up = document.getElementById("up")
-const left = document.getElementById("left")
-const right = document.getElementById("right")
-const down = document.getElementById("down")
+const upButton = document.getElementById("up")
+const leftButton = document.getElementById("left")
+const rightButton = document.getElementById("right")
+const downButton = document.getElementById("down")
 const ball = document.getElementById("ball")
+const moveStep = 15
 
-const move = function (direction, increment) {
-    const position = (parseInt(ball.style[direction]) || 0) + increment
-    ball.style[direction] = `${position}px`
+const move = function (leftIncrement = 0, topIncrement = 0) {
+    const leftPosition = (parseInt(ball.style.left) || 0) + leftIncrement
+    ball.style.left = `${leftPosition}px`
+    const topPosition = (parseInt(ball.style.top) || 0) + topIncrement
+    ball.style.top = `${topPosition}px`
 }
 
 const moveLeft = function () {
-    move("left", -15)
+    move(-moveStep, 0)
 }
 const moveRight = function () {
-    return move("left", 15)
+    return move(moveStep, 0)
 }
 const moveUp = function () {
-    return move("top", -15)
+    return move(0, -moveStep)
 }
 const moveDown = function () {
-    return move("top", 15)
+    return move(0, moveStep)
 }
 
 const addHandlers = function () {
-    up.onclick = moveUp
-    left.onclick = moveLeft
-    right.onclick = moveRight
-    down.onclick = moveDown
-    
+    upButton.onclick = moveUp
+    leftButton.onclick = moveLeft
+    rightButton.onclick = moveRight
+    downButton.onclick = moveDown
 }
 
 const addHeaders = function () {
