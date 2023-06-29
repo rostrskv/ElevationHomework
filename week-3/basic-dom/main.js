@@ -7,18 +7,17 @@ const downButton = document.getElementById("down")
 const ball = document.getElementById("ball")
 const moveStep = 15
 const fieldWidth = playingField.clientWidth - ball.offsetWidth
-const fieldHeight = playingField.clientWidth - ball.offsetWidth
+const fieldHeight = playingField.clientHeight - ball.offsetHeight
 
-const move = function (leftIncrement, topIncrement ) {
-    const leftPosition = (parseInt(ball.style.left) || 0) + leftIncrement
-    console.log(leftPosition)
-    if (leftPosition >= 0 && leftPosition < fieldWidth) {
-        ball.style.left = `${leftPosition}px`
+const move = function (leftIncrement, topIncrement) {
+    const moveDirection = function (direction, increment, limit) {
+        const position = (parseInt(ball.style[direction]) || 0) + increment
+        if (position >= 0 && position < limit) {
+            ball.style[direction] = `${position}px`
+        }
     }
-    const topPosition = (parseInt(ball.style.top) || 0) + topIncrement
-    if (topPosition >= 0 && topPosition < fieldHeight) {
-        ball.style.top = `${topPosition}px`
-    }
+    moveDirection("left", leftIncrement, fieldWidth)
+    moveDirection("top", topIncrement, fieldHeight)
 }
 
 const moveLeft = function () {
