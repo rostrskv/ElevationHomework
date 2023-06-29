@@ -24,29 +24,47 @@ const moveLeft = function () {
     move(-moveStep, 0)
 }
 const moveRight = function () {
-    return move(moveStep, 0)
+    move(moveStep, 0)
 }
 const moveUp = function () {
-    return move(0, -moveStep)
+    move(0, -moveStep)
 }
 const moveDown = function () {
-    return move(0, moveStep)
+    move(0, moveStep)
 }
 
+
 const keyHandler = function (event) {
-    switch (event.key) {
+    switch (event.code) {
         case "ArrowLeft":
+        case "KeyA":
             moveLeft()
             break
         case "ArrowRight":
+        case "KeyD":
             moveRight()
             break
         case "ArrowUp":
+        case "KeyW":
             moveUp()
             break
         case "ArrowDown":
+        case "KeyS":
             moveDown()
             break
+        case "KeyQ":
+            move(-moveStep, -moveStep)
+            break
+        case "KeyE":
+            move(moveStep, -moveStep)
+            break
+        case "KeyZ":
+            move(-moveStep, moveStep)
+            break
+        case "KeyC":
+            move(moveStep, moveStep)
+            break
+
     }
 }
 
