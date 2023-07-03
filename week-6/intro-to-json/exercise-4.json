@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Cow",
+        "weight": {
+            "unit": "kg",
+            "value": "1000"
+        },
+        "area": "world",
+        "endengered": false,
+        "eats": [
+            "grass"
+        ],
+        "eatedBy": ["human"],
+        "delicsiosness":5
+
+    }
+]
