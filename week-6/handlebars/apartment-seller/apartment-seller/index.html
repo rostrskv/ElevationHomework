@@ -4,10 +4,12 @@
 <head>
     <title>Selouse</title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -37,9 +39,46 @@
 
     <!-- Your Code Here -->
     <!-- You should start doing handlebar stuff here -->
+    <script id="resuls-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="result">
+            <img src="{{img}}">
+                <div class="label l-addr">Address</div>
+                <address class="address">{{address}}</address>
+                <div class="label l-price">Price</div>
+                <div class="price">${{price}}</div>
+                <div class="label l-rooms">Rooms</div>
+                <div class="rooms">{{rooms}}</div>
+                {{#if parking}}
+                    <div class="l-park"><i class="fa-solid fa-square-parking" title="Parking available"></i></div>
+                    <div class="label parking"></div>
+                {{/if}}
+                <div class="label l-immediate">Immediate:</div>
+                <div class="immediate">
+                    {{#if immediate}}
+                        Yes
+                    {{else}}
+                        No
+                    {{/if}}
+                </div>
+                {{#if immediate}}
+                    {{#with contactDetails}}
+                        <div class="label l-contact">Contact:</div>
+                        <div class="contact">{{name}}
+                            <a href="mailto:{{email}}">{{email}}</a>
+                        </div>
+                    {{/with}}                
+                {{/if}}
+        </div>
+        {{/each}}
+        {{#unless length}}
+            <div class="no-match">No matching results</div>
+        {{/unless}}
+        </script>
     <!-- Your Code Here -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="apt-data.js"></script>
     <script src="apt-filter.js"></script>

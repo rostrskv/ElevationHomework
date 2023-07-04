@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <dl id="classmates"></dl>
+
+    <script id="classmates-template" type="text/x-handlebars-template">
+        {{#each classmates}}
+            <dt class="student">{{name}}</dt>
+            <dd class="student">{{description}}</dd>
+        {{/each}}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
