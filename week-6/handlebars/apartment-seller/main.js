@@ -21,5 +21,7 @@ const renderApts = function (apartments) {
     resultsElement.append(resultsTemplate(apartments))
 }
 
-Handlebars.registerHelper("toLocaleString", num => num.toLocaleString('en-us'));
+const priceFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+Handlebars.registerHelper("formatPrice", num => priceFormat.format(num));
+
 renderApts(apartments) //renders apartments when page loads
