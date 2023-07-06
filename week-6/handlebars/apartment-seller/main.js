@@ -21,4 +21,5 @@ const renderApts = function (apartments) {
     resultsElement.append(resultsTemplate(apartments))
 }
 
+Handlebars.registerHelper("toLocaleString", num => num.toLocaleString('en-us'));
 renderApts(apartments) //renders apartments when page loads
