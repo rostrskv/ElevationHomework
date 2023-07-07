@@ -1,0 +1,5 @@
+
+#gif-target{
+    width: calc(100vw - 10px);
+    height: 400px;
+}
