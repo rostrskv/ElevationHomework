@@ -31,8 +31,8 @@ const fetchGif = query => {
         method: "GET",
         url: queryUrl,
         success: showGif,
-        error: function () {
-            console.log(arguments)
+        error: function (event, request, settings) {
+            gifTarget.attr("src", `data:text/plain,Error ${event.status}` )
         }
     })
 }
