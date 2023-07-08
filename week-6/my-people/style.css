@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,600&display=swap');
+
+body {
+    font-family: 'Roboto Serif', serif;
+}
+
+h1 {
+    color: #2b3d4f;
+}
+
+#people-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.person-card {
+    display: grid;
+    background-color: #bcc2c6;
+    border-radius: 4px;
+    padding: 30px 20px;
+    gap: 20px;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+}
+
+.person-card:hover {
+    filter: brightness(0.75);
+}
