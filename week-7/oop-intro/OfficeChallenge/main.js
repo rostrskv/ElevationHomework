@@ -16,8 +16,8 @@ class Employee {
     }
 }
 class Manager {
+    employees = []
     constructor(name) {
-        this.employees = []
         this.name = name
     }
     hireEmployee(name) {
@@ -25,9 +25,7 @@ class Manager {
     }
 
     askEmployeesToWork(office) {
-        this.employees.forEach(employee => {
-            employee.work(office)
-        })
+        this.employees.forEach(employee => employee.work(office))
     }
 }
 
@@ -41,11 +39,10 @@ class Cleaner {
 }
 
 class Office {
-    constructor() {
-        this.documents = []
-        this.managers = []
-        this.cleaners = []
-    }
+    documents = []
+    managers = []
+    cleaners = []
+
     hireCleaner(name) {
         this.cleaners.push(new Cleaner(name))
     }
