@@ -64,13 +64,11 @@ let synonyms = null
 getRandomWord()
     .then(wordParam => {
         word = wordParam
-        return getSynonyms(wordParam)
-    })
-    .then(synonymParam => {
-        synonyms = synonymParam
-        return getSentiment(word)
-    })
-    .then(sentiment => {
+        let synonymsPromise = getSynonyms(wordParam)
+        let sentimentPromise = getSentiment(wordParam)
+        return Promise.all([synonymsPromise, sentimentPromise])
+    })    
+    .then(([synonyms, sentiment]) => {
         const sentimentDescription = getSentimentDescription(sentiment)
         console.log(`The word ${word} has a synonyms ${synonyms} which has a ${sentimentDescription} sentiment`)
     })
