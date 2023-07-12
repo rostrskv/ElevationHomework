@@ -59,20 +59,19 @@ const getSentimentDescription = function (sentiment) {
 }
 
 let word = null
-let firstSynonym = null
+let synonyms = null
 
 getRandomWord()
-    .then(w => {
-        word = w
-        return getSynonyms(w)
+    .then(wordParam => {
+        word = wordParam
+        return getSynonyms(wordParam)
     })
-    .then(s => {
-        firstSynonym = s[0]
-        return getSentiment(firstSynonym)
+    .then(synonymParam => {
+        synonyms = synonymParam
+        return getSentiment(word)
     })
-    .then(sentimentJSON => {
-        const sentiment = JSON.parse(sentimentJSON)
+    .then(sentiment => {
         const sentimentDescription = getSentimentDescription(sentiment)
-        console.log(`The word ${word} has a synonym ${firstSynonym} which has a ${sentimentDescription} sentiment`)
+        console.log(`The word ${word} has a synonyms ${synonyms} which has a ${sentimentDescription} sentiment`)
     })
 
