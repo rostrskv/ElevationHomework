@@ -59,7 +59,6 @@ const getSentimentDescription = function (sentiment) {
 }
 
 let word = null
-let synonyms = null
 
 getRandomWord()
     .then(wordParam => {
