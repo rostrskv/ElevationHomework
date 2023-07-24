@@ -43,11 +43,13 @@ const countries = [
 //Find the country with the highest population
 //It should print "Rea" in the end
 let biggestCountry = ""
+let biggestPop = countries[0].population
+
 for (let c of countries) {
-    let biggestPop = countries[0].population
 
     if (c.population > biggestPop) {
         biggestCountry = c.name
+        biggestPop = countries[0].population
     }
 }
 console.log(biggestCountry)
@@ -61,7 +63,7 @@ const popularAttractions = []
 for (let c of countries) {
     let landmarks = c.landmarks
 
-    for (let l in landmarks) {
+    for (let l of landmarks ?? []) {
         if (l.tourismCount > 1000) {
             popularAttractions.push(l.name)
         }
