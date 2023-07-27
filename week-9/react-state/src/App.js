@@ -6,6 +6,7 @@ import SpotCheck3 from './components/SpotCheck3';
 import SpotCheck4 from './components/SpotCheck4';
 import SpotCheck5 from './components/SpotCheck5';
 import Exercise1 from './components/Exercise1';
+import Exercise2 from './components/Exercise2';
 
 function App() {
   return (
@@ -25,10 +26,13 @@ function App() {
       <details><summary>SpotCheck 5</summary>
         <SpotCheck5 />
       </details>
-       <details><summary>Exercise 1</summary>
+      <details><summary>Exercise 1</summary>
         <Exercise1 />
-      </details>  
-       </div>
+      </details>
+      <details><summary>Exercise 2</summary>
+        <Exercise2 />
+      </details>
+    </div>
   );
 }
 
