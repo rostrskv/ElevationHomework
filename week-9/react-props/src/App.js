@@ -2,6 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Company from './components/Company';
 
+function generateCompanyTags(companies) {
+  return companies.map(company =>
+    <Company name={company.name}></Company>
+  )
+}
+
 function App() {
   let companies = [
     { name: "Tesla", revenue: 140 },
@@ -10,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <Company name={companies[0].name}></Company>
+      {generateCompanyTags(companies)}
     </div>
   );
 }
