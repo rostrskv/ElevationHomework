@@ -6,7 +6,7 @@ function Calendar({ reservations }) {
             <h4>Calendar</h4>
             <ul>
                 {reservations.map(r =>
-                    <li>{
+                    <li key={`${r.day}-${r.time}`}>{
                         `${r.name} has a reservation on ${r.day} @ ${r.time}`
                     }</li>)}
             </ul>
@@ -19,7 +19,7 @@ function Register({ reservations }) {
         <h4>Register</h4>
         <ul>
             {reservations.map(r =>
-                <li>{
+                <li key={`${r.day}-${r.time}`}>{
                     `${r.day} @ ${r.time}`
                 }</li>)}
         </ul>
