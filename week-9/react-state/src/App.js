@@ -33,7 +33,7 @@ function App() {
       <details><summary>Exercise 2</summary>
         <Exercise2 />
       </details>
-      <details><summary>Exercise 3</summary>
+      <details><summary>Exercises 3-4</summary>
         <Exercise3 />
       </details>    
       </div>

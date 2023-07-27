@@ -25,7 +25,7 @@ const Exercise3 = () => {
             {
                 state.currentPage === "Landing"
                     ? <Landing state={state} />
-                    : <Home store={state.store} />}
+                    : <Home store={state.store} shouldDiscount={state.shouldDiscount} />}
         </div>
     );
 }
