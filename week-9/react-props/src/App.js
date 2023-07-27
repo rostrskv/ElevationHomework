@@ -17,6 +17,7 @@ const App = () => {
           name={company.name}
           revenue={company.revenue}
           upperCase={upperCase(company.name)}
+          key={company.name}
         />
       )
       }
