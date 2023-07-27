@@ -1,26 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import Company from './components/Company';
+import Wardrobe from './components/Wardrobe';
 
 const upperCase = str => str.toUpperCase()
 
 const App = () => {
-  let companies = [
-    { name: "Tesla", revenue: 140 },
-    { name: "Microsoft", revenue: 300 },
-    { name: "Google", revenue: 600 }]
-
+  let wardrobe = [
+    { type: "shirt", color: "red", size: "Medium" },
+    { type: "shirt", color: "blue", size: "Medium" },
+    { type: "pants", color: "blue", size: "Medium" },
+    { type: "accessory", color: "sapphire", size: "" },
+    { type: "accessory", color: "lilac", size: "" }
+  ]
   return (
     <div className="App">
-      {companies.map(company =>
-        <Company
-          name={company.name}
-          revenue={company.revenue}
-          upperCase={upperCase(company.name)}
-          key={company.name}
-        />
-      )
-      }
+      <Wardrobe wardrobe={wardrobe}></Wardrobe>
     </div>
   );
 };
