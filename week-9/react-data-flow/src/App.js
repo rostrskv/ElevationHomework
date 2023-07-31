@@ -6,14 +6,14 @@ import Excerise2 from './components/Exercise2';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <details><summary>SpotCheck 1</summary>
         <SpotCheck1 />
       </details>
       <details><summary>Exercise 1</summary>
         <Excerise1 />
       </details>
-      <details open><summary>Exercise 2</summary>
+      <details open><summary>Exercise 2 - 7</summary>
         <Excerise2 />
       </details>
     </div>

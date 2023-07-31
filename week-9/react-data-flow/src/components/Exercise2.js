@@ -32,6 +32,13 @@ export default function Excerise2() {
             }
         ]
     })
- 
-    return state.displayConversation ? <List /> : <Conversation/>;
+
+    const displayConvo = (name) => setState({ ...state, displayConversation: name })
+
+    return state.displayConversation === null
+        ? <List contacts={state.conversations.map(c => c.with)} displayConvo={displayConvo} />
+        : <Conversation convo=
+            {
+                state.conversations.find(c => c.with === state.displayConversation).convo
+            } goBack={() => displayConvo(null)} />;
 }
