@@ -2,9 +2,7 @@
 let meatArr = ["beef", "chicken"]
 let vegetableArr = ["rabbit", "carrots", "potatoes", "lettuce"]
 
-let rabbit
-[rabbit, ...vegetableArr] = vegetableArr
-meatArr = [...meatArr, rabbit]
+meatArr = [...meatArr, ([{}, ...vegetableArr] = vegetableArr)[0]]
 console.log("Meat:", meatArr, "Vegtables:", vegetableArr)
 
 // The Torn Passport
