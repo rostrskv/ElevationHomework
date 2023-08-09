@@ -13,8 +13,8 @@ const App = (props) => {
   const [potions, setPotions] = useState(POTIONS_DATA);
   const [charms, setCharms] = useState(CHARMS_DATA);
   const STATE_MAP = {
-    potions:potions,
-    charms:charms
+    potions: potions,
+    charms: charms
   }
 
   const getCategoryData = (category) => {
@@ -22,13 +22,34 @@ const App = (props) => {
   }
 
   return (
-    <div>
+    <Router>
+      <div>
         <div className="App">
           <HogwartNavbar />
         </div>
-        {/* add routes and route here */}
-    </div>
-
+        <Routes>
+          <Route
+            path="/"
+            element={<Home categories={categories} />}>
+          </Route>
+          <Route
+            path="/wiki/:category"
+            element={
+              <Entities getCategoryData={getCategoryData} />
+            } >
+          </Route>
+          <Route
+            path="/wiki/:category/:entityName"
+            element={
+              <EntityDescription getCategoryData={getCategoryData} />
+            } />
+          <Route
+            path="/about"
+            element={<About />}>
+          </Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

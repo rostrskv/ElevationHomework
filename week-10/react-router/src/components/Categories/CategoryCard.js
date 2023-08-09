@@ -1,5 +1,6 @@
 import React from 'react';
 import './CategoryList.css';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = ({ categoryData }) => {
   const { name, description, imageUrl } = categoryData;
