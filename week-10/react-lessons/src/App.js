@@ -1,5 +1,6 @@
 import './App.css';
 import ReactInput from './components/react-input/ReactInput';
+import ReactLifecycle from './components/react-lifecycle/ReactLifecycle';
 
 function App() {
   return (
@@ -7,6 +8,10 @@ function App() {
       <details>
         <summary>React input lesson</summary>
         <ReactInput />
+      </details>
+      <details open>
+        <summary>React Lifecycle and the UseEffect Hook lesson</summary>
+        <ReactLifecycle />
       </details>
     </div>
   );
