@@ -1,4 +1,3 @@
-import { event } from 'jquery'
 import { useState } from 'react'
 const InputTest = () => {
     const [text, setText] = useState("")

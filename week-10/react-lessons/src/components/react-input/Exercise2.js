@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 const Exercise2 = () => {
     const [name, setName] = useState("");
     const [fruit, setFruit] = useState("");
-    useEffect(() => console.log(`${name} selected ${fruit}`), [fruit])
+    useEffect(() => {
+        if (name) {
+            console.log(`${name} selected ${fruit}`)
+        }
+    }, [fruit])
 
     return (
         <div>
