@@ -21,9 +21,9 @@ export default function TopPosts() {
         getPosts()
     }, [])
 
-    return <div class="top-posts">
+    return <div className="top-posts">
         <h2>Top Posts</h2>
-        <div class="posts-container">
+        <div className="posts-container">
             {posts?.map(p =>
                 <article key={p.id}>
                     <h3>{p.title}</h3>
