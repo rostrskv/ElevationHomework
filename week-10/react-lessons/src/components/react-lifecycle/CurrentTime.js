@@ -7,7 +7,7 @@ export default function CurrentTime() {
             () => setCurrentTime(new Date()),
             1000
         )
-        return () => clearTimeout(timeoutId)
+        return () => clearInterval(timeoutId)
     })
-    return <div>{`${currentTime.toLocaleTimeString()}.${currentTime.getMilliseconds()}`}</div>
+    return <div>{currentTime.toLocaleTimeString()}</div>
 }
