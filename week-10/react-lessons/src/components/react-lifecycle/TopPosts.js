@@ -22,7 +22,7 @@ export default function TopPosts() {
 
     return <div className="top-posts">
         <h2>Top Posts</h2>
-        <div className={`posts-container ${isSmallScreen ? "single-column" : null}`}>
+        <div className={`posts-container ${isSmallScreen ? "single-column" : ""}`}>
             {posts.map(p =>
                 <article key={p.id}>
                     <h3>{p.title}</h3>
