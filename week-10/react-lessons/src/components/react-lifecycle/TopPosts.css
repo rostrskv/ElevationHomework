@@ -14,3 +14,7 @@
 .posts-container article {
     border: 1px solid black;
 }
+
+.single-column{
+    grid-template-columns: 1fr;
+}

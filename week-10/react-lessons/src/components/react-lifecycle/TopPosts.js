@@ -7,13 +7,22 @@ export default function TopPosts() {
         /** @type{{userId:number, id:number, title:string, body:string}[]} */
         ([])
     )
-    useEffect(() => {        
+    useEffect(() => {
         getPosts().then(setPosts)
+    }, [])
+
+    const [isSmallScreen, setIsSmallScreen] = useState(false)
+    useEffect(() => {
+        const onResize = () => {
+            setIsSmallScreen(window.innerWidth <= 768)
+        }
+        window.addEventListener("resize", onResize)
+        return () => window.removeEventListener("resize", onResize)
     }, [])
 
     return <div className="top-posts">
         <h2>Top Posts</h2>
-        <div className="posts-container">
+        <div className={`posts-container ${isSmallScreen ? "single-column" : null}`}>
             {posts.map(p =>
                 <article key={p.id}>
                     <h3>{p.title}</h3>
